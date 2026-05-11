@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing basic dependencies..."
+      - php -v || true
+      - composer -V || true
+
+  build:
+    commands:
+      - echo "Preparing Laravel application artifact..."
+      - ls -la
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  exclude-paths:
+    - vendor/**
+    - node_modules/**
+    - .git/**
+    - tests/**
