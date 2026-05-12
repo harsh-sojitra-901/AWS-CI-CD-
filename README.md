@@ -1,195 +1,235 @@
-<<<<<<< HEAD
-# Laravel Task Management System
+# 🚀 AWS CI/CD Pipeline for Laravel Application Deployment
 
-In this repo I developed a Task Management System with Laravel 11. You can control or contribute to the use of Model, Ajax, Controller.
-## Demo Video
-[![LARAVEL_11_TASK_MANAGEMENT_SYSTEM](https://img.youtube.com/vi/_pf5jAt-eiw/0.jpg)](https://www.youtube.com/watch?v=_pf5jAt-eiw)
+## 📌 Project Overview
 
-## Screenshots
+This project demonstrates an end-to-end CI/CD pipeline implementation using AWS services for automated deployment of a Laravel application on a Private EC2 infrastructure.
 
-Laravel 11 Task Management System Screenshot
-![Laravel_Task_Management_System](screenshots/ss_1.png)
+The architecture follows a production-style deployment approach where the Laravel application is hosted on a private server, accessed securely through a Bastion Host and Nginx reverse proxy.
 
-Laravel 11 Task Management System Screenshot 2
-![Laravel_Task_Management_System](screenshots/ss_2.png)
+The CI/CD pipeline automatically builds and deploys the application whenever new code is pushed to the GitLab repository.
 
+---
 
-## Features
-- Create Project
-- Edit Project
-- Delete Project
-- Create Task
-- Edit Task
-- Delete Task
-- Sorting with Drag and Drop System
-- Status Update
-- Filter by Status
+# 🏗️ Architecture Diagram
 
+<img width="1536" height="1024" alt="Workflow" src="https://github.com/user-attachments/assets/bceb4dcf-d783-4706-80a2-17d704e7e820" />
 
-## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Supporting](#supporting)
-- [License](#license)
+---
 
-## Prerequisites
-Before you begin, ensure you have met the following requirements:
-- PHP >= 8.2 
-- MySQL
-- Composer installed globally
+# ⚙️ Tech Stack & Services Used
 
-## Installation
-To install and set up the project locally, follow these steps:
+## ☁️ AWS Services
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/mrcandev/Laravel-Task-Management-Example.git
+* Amazon VPC
+* Public & Private Subnets
+* Internet Gateway
+* NAT Gateway
+* EC2 Instances
+* Amazon RDS MySQL
+* Amazon S3
+* AWS IAM
+* AWS CodePipeline
+* AWS CodeBuild
+* AWS CodeDeploy
+* Amazon CloudWatch
 
-2. Navigate to the project directory:
-    ```bash
-    cd project_folder
+## 🛠️ DevOps & Application Tools
 
-3. Install PHP dependencies:
-    ```bash
-    composer install
+* GitLab
+* Git
+* Laravel
+* PHP
+* Composer
+* Node.js & NPM
+* Nginx Reverse Proxy
+* Ubuntu Linux
+* Bash Scripting
 
-4. Set up your environment variables:
-    ```bash
-    cp .env.example .env
-    php artisan key:generate
+---
 
-5. Run migrations (optional):
-    ```bash
-    php artisan migrate
+# 🔥 Project Architecture
 
-
-## Usage
-To install and set up the project locally, follow these steps:
-1. To run the application, use the following command:
-    ```bash
-    php artisan serve
-
-Visit http://localhost:8000 in your web browser to view the application.
-
-
-## Contributing
-Contributions are welcome! Here's how you can contribute to this project:
-
-1. Fork the repository.
-2. Create a new branch (git checkout -b feature/your-feature-name).
-3. Commit your changes (git commit -am 'Add some feature').
-4. Push to the branch (git push origin feature/your-feature-name).
-5. Create a new Pull Request.
-
-## Copyrights
-I would like to point out that I used the free Argon open source template for design. You can click on the link for other details and premium version.
-
-Link: https://www.creative-tim.com/product/argon-dashboard
-
-
-## Supporting
-If you find this project useful and would like to support its development, you can:
-- **Star the repository**: If you find this project helpful or interesting, please give it a star.
-- **Fork and contribute**: Contributions are welcome! Feel free to fork this project and submit pull requests.
-- **Donate**: If you'd like to make a monetary donation to support the developer, you can use the sponsor button on GitHub or visit the developer's profile for more options.
-
-## License
-This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
-.
-=======
-# laravel-aws-cicd
-
-
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.com/Harsh2004/laravel-aws-cicd.git
-git branch -M main
-git push -uf origin main
+```text
+Developer
+   ↓
+GitLab Repository
+   ↓
+AWS CodePipeline
+   ↓
+AWS CodeBuild
+   ↓
+Amazon S3 (Build Artifact)
+   ↓
+AWS CodeDeploy
+   ↓
+Private EC2 (Laravel Application)
+   ↓
+Amazon RDS MySQL
 ```
 
-## Integrate with your tools
+---
 
-* [Set up project integrations](https://gitlab.com/Harsh2004/laravel-aws-cicd/-/settings/integrations)
+# 🌐 Infrastructure Setup
 
-## Collaborate with your team
+## VPC Configuration
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+| Component      | CIDR        |
+| -------------- | ----------- |
+| VPC            | 10.0.0.0/16 |
+| Public Subnet  | 10.0.1.0/24 |
+| Private Subnet | 10.0.2.0/24 |
 
-## Test and Deploy
+---
 
-Use the built-in continuous integration in GitLab.
+# 🔐 Security Architecture
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+* Public EC2 acts as Bastion Host
+* Laravel application runs on Private EC2
+* RDS MySQL configured as private database
+* IAM roles used for secure AWS service communication
+* Nginx reverse proxy used for browser access
 
-***
+---
 
-# Editing this README
+# 🚀 CI/CD Workflow
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## Step 1 — Source Stage
 
-## Suggestions for a good README
+Developer pushes code to GitLab repository.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Step 2 — Build Stage
 
-## Name
-Choose a self-explaining name for your project.
+AWS CodeBuild:
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+* downloads source code
+* installs dependencies
+* prepares build artifact
+* uploads artifact to S3
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Step 3 — Deploy Stage
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+AWS CodeDeploy:
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+* downloads artifact from S3
+* copies files to Private EC2
+* executes deployment scripts
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+## Step 4 — Application Deployment
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Deployment scripts:
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+* install dependencies
+* run database migrations
+* set permissions
+* restart Laravel application
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+---
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+# 📂 Important Files
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## buildspec.yml
+Used by AWS CodeBuild to build application artifacts.
+<img width="1068" height="544" alt="Screenshot 2026-05-12 165144" src="https://github.com/user-attachments/assets/f6b744a9-30b8-4c64-959c-ed3fbf5ad4b5" />
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## appspec.yml
+Used by AWS CodeDeploy to define deployment lifecycle hooks.
+<img width="947" height="432" alt="Screenshot 2026-05-12 165228" src="https://github.com/user-attachments/assets/c94b79e4-68ff-420a-863f-fbf2fc110a8d" />
 
-## License
-For open source projects, say how it is licensed.
+## install.sh
+Handles:
+* composer install
+* npm install
+* Laravel migrations
+* permission setup
+<img width="887" height="698" alt="Screenshot 2026-05-12 165320" src="https://github.com/user-attachments/assets/26cfeda8-82d5-4e0e-a55e-e2841685da03" />
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
->>>>>>> 16bdf20acaf2ce4e8f2642e5a652baddbeedb853
+## start.sh
+Starts Laravel application server.
+<img width="811" height="343" alt="Screenshot 2026-05-12 165344" src="https://github.com/user-attachments/assets/096e96dd-0068-4645-a896-2e6c8415877a" />
+
+---
+
+# 📸 Project Screenshots
+
+## AWS CodePipeline
+
+> <img width="1901" height="462" alt="code-Pipe-line" src="https://github.com/user-attachments/assets/47a0a2fb-e27b-4688-b548-3c14de571129" />
+
+## AWS CodeBuild
+
+> <img width="1578" height="238" alt="code-build" src="https://github.com/user-attachments/assets/3a540e76-4434-4572-a20f-b771f6e401bb" />
+
+## AWS CodeDeploy
+
+> <img width="1565" height="331" alt="Code-deploy" src="https://github.com/user-attachments/assets/a13e2033-2d7e-455a-a7f8-f99867dddbf9" />
+
+## Laravel Website Output
+
+><img width="1901" height="966" alt="Laravel-site" src="https://github.com/user-attachments/assets/22eca5f4-656e-4d35-9ad7-974bea04e420" />
+
+---
+
+# 🧠 Key Learning Outcomes
+
+* AWS CI/CD pipeline implementation
+* Private subnet deployment architecture
+* Bastion host setup
+* Nginx reverse proxy configuration
+* AWS IAM role management
+* Automated deployment workflows
+* Laravel deployment automation
+* Linux server administration
+* AWS networking concepts
+
+---
+
+# 🔥 Challenges Faced
+
+* Configuring private EC2 access
+* Setting up reverse proxy
+* IAM permission troubleshooting
+* CodeDeploy agent configuration
+* Laravel permission issues
+* GitLab integration with AWS services
+
+---
+
+# 📈 Future Improvements
+
+* Dockerize Laravel application
+* Kubernetes deployment
+* SSL/TLS integration
+* Terraform Infrastructure as Code
+* Monitoring with Prometheus & Grafana
+* Auto Scaling implementation
+* Load Balancer integration
+
+---
+
+# 👨‍💻 Author
+
+Harsh Sojitra
+
+RHCSA Certified | DevOps & Cloud Enthusiast
+
+---
+
+# 📬 Connect With Me
+
+LinkedIn:
+
+> www.linkedin.com/in/harshsojitra90
+
+---
+
+# ⭐ Conclusion
+
+This project helped me gain practical hands-on experience in:
+
+* AWS Cloud Infrastructure
+* CI/CD automation
+* Linux administration
+* Deployment pipelines
+* Secure application architecture
+
+It represents a real-world DevOps deployment workflow using AWS services and modern deployment practices.
